@@ -287,6 +287,7 @@ class RepositoryAnalyzer:
         insights = []
         
         # Language insights
+        main_lang = None
         if analysis["language_distribution"]:
             main_lang = max(analysis["language_distribution"].items(), key=lambda x: x[1])
             insights.append(f"Primary language: {main_lang[0]} ({main_lang[1]} files)")
@@ -300,7 +301,11 @@ class RepositoryAnalyzer:
             insights.append(f"Found {len(analysis['key_files'])} key configuration/entry files")
         
         # Use cognitive architecture for deeper analysis
-        analysis_text = f"Repository with {total_files} files, primarily in {main_lang[0]}"
+        if main_lang:
+            analysis_text = f"Repository with {total_files} files, primarily in {main_lang[0]}"
+        else:
+            analysis_text = f"Repository with {total_files} files"
+        
         cognitive_result = await self.cognitive_arch.perceive_and_process(
             analysis_text, modality="text"
         )
