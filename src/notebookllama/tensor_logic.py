@@ -195,12 +195,12 @@ class LogicalReasoner:
                     conclusion_tv = self.fuzzy_and(premise_tvs)
                     
                     # Create conclusion proposition
+                    premise_propositions = [self.propositions[pid] for pid in premises]
                     conclusion_prop = LogicalProposition(
                         predicate=conclusion,
                         arguments=[],
                         truth_value=conclusion_tv,
-                        confidence=min(p.confidence for p in 
-                                     [self.propositions[pid] for pid in premises]),
+                        confidence=min(p.confidence for p in premise_propositions),
                     )
                     
                     return conclusion_prop

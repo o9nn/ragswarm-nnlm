@@ -406,6 +406,9 @@ class CognitiveArchitecture:
     Provides a unified interface for cognitive processing.
     """
     
+    # Constants
+    MAX_FOCUS_LENGTH = 100  # Maximum length for focus text
+    
     def __init__(self, atomspace: AtomSpace, embedding_dim: int = 128):
         self.atomspace = atomspace
         
@@ -440,7 +443,7 @@ class CognitiveArchitecture:
         perception = await self.perception.perceive(input_data, modality)
         
         # 2. Attention allocation
-        relevant_atoms = await self.atomspace.find_atoms_by_name(str(input_data)[:100])
+        relevant_atoms = await self.atomspace.find_atoms_by_name(str(input_data)[:self.MAX_FOCUS_LENGTH])
         relevance_scores = {atom.atom_id: atom.attention_value for atom in relevant_atoms}
         self.attention.allocate_attention(relevant_atoms, relevance_scores)
         
@@ -460,7 +463,10 @@ class CognitiveArchitecture:
         )
         
         # 5. Update state
-        self.state.current_focus = input_data if len(str(input_data)) < 100 else str(input_data)[:100]
+        self.state.current_focus = (
+            input_data if len(str(input_data)) < self.MAX_FOCUS_LENGTH 
+            else str(input_data)[:self.MAX_FOCUS_LENGTH]
+        )
         self.state.working_memory = self.memory.memory_stores[MemoryType.WORKING]
         self.state.attention_distribution = self.attention.attention_weights
         self.state.timestamp = datetime.utcnow().isoformat()

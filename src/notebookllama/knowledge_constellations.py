@@ -500,10 +500,13 @@ class KnowledgeConstellationOrchestrator:
                 
                 if shared_keys:
                     # Create semantic relationship
+                    max_metadata_len = max(len(atom1.metadata), len(atom2.metadata))
+                    weight = len(shared_keys) / max_metadata_len if max_metadata_len > 0 else 0.0
+                    
                     self.hypergraph.add_hyperedge(
                         atom_ids=[atom1.atom_id, atom2.atom_id],
                         edge_type="shares_metadata",
-                        weight=len(shared_keys) / max(len(atom1.metadata), len(atom2.metadata)),
+                        weight=weight,
                     )
     
     async def discover_constellations(self) -> Dict[str, List[Constellation]]:
