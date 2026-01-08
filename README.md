@@ -207,6 +207,108 @@ The following MCP tools are available for interacting with the swarm:
 
 ---
 
+## 🧠 Neuro-Symbolic Fabric for Cognitive Architectures
+
+RAGSwarm Neural Notebook-LM now includes a comprehensive **neuro-symbolic fabric** that combines neural tensor operations with symbolic logical reasoning, creating a true cognitive architecture for autonomous knowledge processing.
+
+### Core Capabilities
+
+- **🔗 Tensor-Logic Orchestration**: Seamlessly integrate neural embeddings with symbolic logic
+  - Bidirectional tensor ↔ logic translation
+  - Semantic similarity computation
+  - Neural attention mechanisms
+  - Fuzzy logic reasoning with truth values
+
+- **🎯 Cognitive Architecture**: Biologically-inspired modular system
+  - **Perception**: Process and represent external stimuli
+  - **Attention**: Allocate cognitive resources dynamically
+  - **Memory**: Working, episodic, semantic, and procedural memory systems
+  - **Reasoning**: Neuro-symbolic inference and analogical reasoning
+  - **Planning**: Goal decomposition and hierarchical planning
+  - **Metacognition**: Self-reflection and performance analysis
+
+- **📓 Autonomous Neural-Notebook Generation**: Intelligent repository analysis
+  - Automatic code structure analysis (classes, functions, imports)
+  - Cognitive insights and architectural pattern detection
+  - Multi-format output (Jupyter notebooks, JSON, Markdown)
+  - Knowledge graph generation for visualization
+
+- **✨ Hypergraph Knowledge Constellations**: Advanced pattern discovery
+  - **Clusters**: Dense groups of related concepts
+  - **Hubs**: Central concepts with many connections
+  - **Bridges**: Concepts connecting disparate knowledge areas
+  - **Hierarchies**: Taxonomic parent-child structures
+  - **Multi-way relationships**: Hyperedges connecting multiple concepts
+
+### Using the Neuro-Symbolic Fabric
+
+```python
+from notebookllama.neurosymbolic_fabric import (
+    initialize_fabric, 
+    NeuroSymbolicConfig
+)
+
+# Configure and initialize the fabric
+config = NeuroSymbolicConfig(
+    embedding_dim=128,
+    enable_tensor_logic=True,
+    enable_cognitive_arch=True,
+    enable_constellations=True,
+    enable_notebook_gen=True
+)
+
+fabric = await initialize_fabric(config)
+
+# Perform neuro-symbolic reasoning
+result = await fabric.process_with_neuro_symbolic_reasoning(
+    "What are the key architectural patterns in this codebase?"
+)
+
+# Generate autonomous neural notebook
+notebook = await fabric.generate_neural_notebook("/path/to/repository")
+await fabric.notebook_orchestrator.save_notebook(notebook, "analysis.ipynb")
+
+# Discover emergent knowledge patterns
+patterns = await fabric.discover_knowledge_patterns()
+print(f"Found {len(patterns['constellations']['clusters'])} knowledge clusters")
+
+# Cognitive goal-directed processing
+goal_result = await fabric.cognitive_goal_processing(
+    "Extract and analyze all design patterns in the codebase"
+)
+
+# Metacognitive analysis
+reflection = await fabric.metacognitive_analysis()
+print(f"System recommendations: {reflection['components']['cognitive']['recommendations']}")
+```
+
+### Neuro-Symbolic Query Processing
+
+The fabric processes queries through a multi-stage pipeline:
+
+1. **Neural Phase**: Embed concepts, compute similarity, rank by relevance
+2. **Symbolic Phase**: Create logical propositions, apply inference rules
+3. **Integration**: Combine neural and symbolic results for comprehensive answers
+
+### Repository-Driven Neural Notebooks
+
+Automatically generate intelligent notebooks that:
+- Analyze repository structure and dependencies
+- Extract code patterns and architectural insights
+- Generate cognitive recommendations
+- Create knowledge graphs for visualization
+- Output in standard Jupyter format
+
+**See [NEUROSYMBOLIC_ARCHITECTURE.md](./NEUROSYMBOLIC_ARCHITECTURE.md)** for complete documentation including:
+- Detailed component descriptions
+- Architecture diagrams
+- Processing pipelines
+- Configuration options
+- Performance characteristics
+- Integration examples
+
+---
+
 ### License
 
 This project is provided under an [MIT License](./LICENSE).
